@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/Gos/.oh-my-bash/themes/agnoster'
+let g:netrw_dirhist_2='/home/Gos/.oh-my-bash/themes'
+let g:netrw_dirhist_1='/home/Gos/.oh-my-bash'

@@ -1,0 +1,273 @@
+[2025-04-30 21:34:05.006]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-04-30 21:34:05.019]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-04-30 21:34:05.057]	Installing "tmux-resurrect"
+[2025-04-30 21:34:08.439]	  "tmux-resurrect" download success
+[2025-04-30 21:34:08.453]	Done.
+
+[2025-04-30 21:43:20.906]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-04-30 21:43:20.916]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-04-30 21:43:20.957]	Already installed "tmux-resurrect"
+[2025-04-30 21:43:20.970]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-04-30 21:43:20.995]	Updating all plugins!
+[2025-04-30 21:43:21.006]	
+[2025-04-30 21:43:22.092]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-04-30 21:43:22.105]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-04-30 21:43:22.139]	Already installed "tmux-resurrect"
+[2025-04-30 21:43:22.149]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-04-30 21:43:22.175]	Updating all plugins!
+[2025-04-30 21:43:22.187]	
+[2025-04-30 21:43:22.556]	  "tmux-resurrect" update success
+[2025-04-30 21:43:22.566]	    | Already up to date.
+[2025-04-30 21:43:22.577]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-04-30 21:43:22.611]	Done.
+
+[2025-04-30 21:43:23.805]	  "tmux-resurrect" update success
+[2025-04-30 21:43:23.819]	    | Already up to date.
+[2025-04-30 21:43:23.832]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-04-30 21:43:23.867]	Removing "tmux-resurrect"
+[2025-04-30 21:43:23.880]	  "tmux-resurrect" clean success
+[2025-04-30 21:43:23.894]	Done.
+
+[2025-05-01 10:15:11.938]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 10:15:11.950]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 10:15:11.988]	Installing "tmux-resurrect"
+[2025-05-01 10:15:18.397]	  "tmux-resurrect" download success
+[2025-05-01 10:15:18.407]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 10:15:18.432]	Updating all plugins!
+[2025-05-01 10:15:18.445]	
+[2025-05-01 10:15:20.072]	  "tmux-resurrect" update success
+[2025-05-01 10:15:20.084]	    | Already up to date.
+[2025-05-01 10:15:20.097]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 10:15:20.137]	Done.
+
+[2025-05-01 14:26:24.100]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 14:26:24.116]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 14:26:24.159]	Already installed "tmux-resurrect"
+[2025-05-01 14:26:24.173]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 14:26:24.198]	Updating all plugins!
+[2025-05-01 14:26:24.210]	
+[2025-05-01 14:26:25.862]	  "tmux-resurrect" update success
+[2025-05-01 14:26:25.881]	    | Already up to date.
+[2025-05-01 14:26:25.898]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 14:26:25.950]	Done.
+
+[2025-05-01 14:26:28.458]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 14:26:28.471]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 14:26:28.504]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 14:26:28.528]	Updating all plugins!
+[2025-05-01 14:26:28.541]	
+[2025-05-01 14:26:28.553]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 14:26:28.589]	Removing "tmux-resurrect"
+[2025-05-01 14:26:28.601]	  "tmux-resurrect" clean success
+[2025-05-01 14:26:28.613]	Done.
+
+[2025-05-01 15:30:14.746]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 15:30:14.760]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 15:30:14.800]	Installing "tmux-resurrect"
+[2025-05-01 15:30:20.750]	  "tmux-resurrect" download success
+[2025-05-01 15:30:20.765]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 15:30:20.795]	Updating all plugins!
+[2025-05-01 15:30:20.807]	
+[2025-05-01 15:30:22.636]	  "tmux-resurrect" update success
+[2025-05-01 15:30:22.672]	    | Already up to date.
+[2025-05-01 15:30:22.708]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 15:30:22.793]	Done.
+
+[2025-05-01 15:46:14.699]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 15:46:14.712]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 15:46:14.751]	Already installed "tmux-resurrect"
+[2025-05-01 15:46:14.764]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 15:46:14.788]	Updating all plugins!
+[2025-05-01 15:46:14.803]	
+[2025-05-01 15:46:16.504]	  "tmux-resurrect" update success
+[2025-05-01 15:46:16.526]	    | Already up to date.
+[2025-05-01 15:46:16.539]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 15:46:16.578]	Done.
+
+[2025-05-01 21:09:17.238]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 21:09:17.278]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 21:09:17.401]	Already installed "tmux-resurrect"
+[2025-05-01 21:09:17.442]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 21:09:17.518]	Updating all plugins!
+[2025-05-01 21:09:17.548]	
+[2025-05-01 21:09:18.704]	  "tmux-resurrect" update success
+[2025-05-01 21:09:18.741]	    | Already up to date.
+[2025-05-01 21:09:18.783]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 21:09:18.875]	Done.
+
+[2025-05-01 21:37:58.641]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 21:37:58.678]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 21:37:58.764]	Already installed "tmux-resurrect"
+[2025-05-01 21:37:58.790]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 21:37:58.859]	Updating all plugins!
+[2025-05-01 21:37:58.900]	
+[2025-05-01 21:37:59.930]	  "tmux-resurrect" update success
+[2025-05-01 21:37:59.946]	    | Already up to date.
+[2025-05-01 21:37:59.962]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 21:38:00.006]	Done.
+
+[2025-05-01 21:52:10.403]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-01 21:52:10.416]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-01 21:52:10.455]	Already installed "tmux-resurrect"
+[2025-05-01 21:52:10.468]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-01 21:52:10.494]	Updating all plugins!
+[2025-05-01 21:52:10.506]	
+[2025-05-01 21:52:11.592]	  "tmux-resurrect" update success
+[2025-05-01 21:52:11.606]	    | Already up to date.
+[2025-05-01 21:52:11.618]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-01 21:52:11.659]	Done.
+
+[2025-05-02 08:34:06.525]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-02 08:34:06.552]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-02 08:34:06.609]	Already installed "tmux-resurrect"
+[2025-05-02 08:34:06.623]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-02 08:34:06.645]	Updating all plugins!
+[2025-05-02 08:34:06.655]	
+[2025-05-02 08:34:07.836]	  "tmux-resurrect" update success
+[2025-05-02 08:34:07.846]	    | Already up to date.
+[2025-05-02 08:34:07.859]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-02 08:34:07.914]	Done.
+
+[2025-05-02 16:01:42.682]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-02 16:01:42.697]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-02 16:01:42.772]	Already installed "tmux-resurrect"
+[2025-05-02 16:01:42.806]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-02 16:01:42.871]	Updating all plugins!
+[2025-05-02 16:01:42.902]	
+[2025-05-02 16:01:48.565]	  "tmux-resurrect" update success
+[2025-05-02 16:01:48.578]	    | Already up to date.
+[2025-05-02 16:01:48.591]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-02 16:01:48.629]	Done.
+
+[2025-05-02 16:10:19.305]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-02 16:10:19.340]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-02 16:10:19.443]	Already installed "tmux-resurrect"
+[2025-05-02 16:10:19.481]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-02 16:10:19.566]	Updating all plugins!
+[2025-05-02 16:10:19.591]	
+[2025-05-02 16:10:20.455]	  "tmux-resurrect" update success
+[2025-05-02 16:10:20.479]	    | Already up to date.
+[2025-05-02 16:10:20.504]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-02 16:10:20.584]	Done.
+
+[2025-05-03 09:28:36.946]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-03 09:28:36.960]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-03 09:28:36.999]	Already installed "tmux-resurrect"
+[2025-05-03 09:28:37.011]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-03 09:28:37.032]	Updating all plugins!
+[2025-05-03 09:28:37.043]	
+[2025-05-03 09:28:37.685]	  "tmux-resurrect" update success
+[2025-05-03 09:28:37.697]	    | Already up to date.
+[2025-05-03 09:28:37.710]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-03 09:28:37.743]	Done.
+
+[2025-05-03 10:20:05.826]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-03 10:20:05.837]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-03 10:20:05.892]	Already installed "tmux-resurrect"
+[2025-05-03 10:20:05.902]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-03 10:20:05.923]	Updating all plugins!
+[2025-05-03 10:20:05.933]	
+[2025-05-03 10:20:08.316]	  "tmux-resurrect" update success
+[2025-05-03 10:20:08.330]	    | Already up to date.
+[2025-05-03 10:20:08.342]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-03 10:20:08.383]	Done.
+
+[2025-05-03 10:50:06.819]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-03 10:50:06.835]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-03 10:50:06.906]	Already installed "tmux-resurrect"
+[2025-05-03 10:50:06.915]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-03 10:50:06.941]	Updating all plugins!
+[2025-05-03 10:50:06.950]	
+[2025-05-03 10:50:07.966]	  "tmux-resurrect" update success
+[2025-05-03 10:50:07.975]	    | Already up to date.
+[2025-05-03 10:50:07.985]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-03 10:50:08.054]	Done.
+
+[2025-05-03 11:01:59.066]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-03 11:01:59.081]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-03 11:01:59.122]	Already installed "tmux-resurrect"
+[2025-05-03 11:01:59.135]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-03 11:01:59.160]	Updating all plugins!
+[2025-05-03 11:01:59.169]	
+[2025-05-03 11:02:00.132]	  "tmux-resurrect" update success
+[2025-05-03 11:02:00.143]	    | Already up to date.
+[2025-05-03 11:02:00.158]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-03 11:02:00.189]	Done.
+
+[2025-05-03 16:34:26.523]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-03 16:34:26.533]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-03 16:34:26.572]	Already installed "tmux-resurrect"
+[2025-05-03 16:34:26.583]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-03 16:34:26.608]	Updating all plugins!
+[2025-05-03 16:34:26.619]	
+[2025-05-03 16:34:27.315]	  "tmux-resurrect" update success
+[2025-05-03 16:34:27.327]	    | Already up to date.
+[2025-05-03 16:34:27.338]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-03 16:34:27.372]	Done.
+
+[2025-05-03 17:37:56.139]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-03 17:37:56.157]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-03 17:37:56.199]	Already installed "tmux-resurrect"
+[2025-05-03 17:37:56.214]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-03 17:37:56.239]	Updating all plugins!
+[2025-05-03 17:37:56.253]	
+[2025-05-03 17:37:57.164]	  "tmux-resurrect" update success
+[2025-05-03 17:37:57.180]	    | Already up to date.
+[2025-05-03 17:37:57.194]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-03 17:37:57.232]	Done.
+
+[2025-05-04 09:47:01.794]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-04 09:47:01.812]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-04 09:47:01.855]	Already installed "tmux-resurrect"
+[2025-05-04 09:47:01.867]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-04 09:47:01.891]	Updating all plugins!
+[2025-05-04 09:47:01.906]	
+[2025-05-04 09:47:03.666]	  "tmux-resurrect" update success
+[2025-05-04 09:47:03.679]	    | Already up to date.
+[2025-05-04 09:47:03.691]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-04 09:47:03.729]	Done.
+
+[2025-05-04 13:17:20.368]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-04 13:17:20.380]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-04 13:17:20.424]	Already installed "tmux-resurrect"
+[2025-05-04 13:17:20.439]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-04 13:17:20.464]	Updating all plugins!
+[2025-05-04 13:17:20.477]	
+[2025-05-04 13:17:21.677]	  "tmux-resurrect" update success
+[2025-05-04 13:17:21.689]	    | Already up to date.
+[2025-05-04 13:17:21.702]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-04 13:17:21.744]	Done.
+
+[2025-05-04 14:37:37.403]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-04 14:37:37.433]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-04 14:37:37.544]	Already installed "tmux-resurrect"
+[2025-05-04 14:37:37.581]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-04 14:37:37.611]	Updating all plugins!
+[2025-05-04 14:37:37.623]	
+[2025-05-04 14:37:39.307]	  "tmux-resurrect" update success
+[2025-05-04 14:37:39.322]	    | Already up to date.
+[2025-05-04 14:37:39.334]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-04 14:37:39.372]	Done.
+
+[2025-05-04 15:31:44.784]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-04 15:31:44.799]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-04 15:31:44.860]	Already installed "tmux-resurrect"
+[2025-05-04 15:31:44.873]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-04 15:31:44.903]	Updating all plugins!
+[2025-05-04 15:31:44.919]	
+[2025-05-04 15:31:46.667]	  "tmux-resurrect" update success
+[2025-05-04 15:31:46.680]	    | Already up to date.
+[2025-05-04 15:31:46.693]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-04 15:31:46.734]	Done.
+
+[2025-05-04 21:42:43.918]	List of discovered tpm plugins: tmux-plugins/tmux-resurrect
+[2025-05-04 21:42:43.935]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/install_plugins
+[2025-05-04 21:42:43.979]	Already installed "tmux-resurrect"
+[2025-05-04 21:42:43.991]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/update_plugins all
+[2025-05-04 21:42:44.016]	Updating all plugins!
+[2025-05-04 21:42:44.025]	
+[2025-05-04 21:42:45.290]	  "tmux-resurrect" update success
+[2025-05-04 21:42:45.311]	    | Already up to date.
+[2025-05-04 21:42:45.327]	Invoking /home/Gos/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2025-05-04 21:42:45.367]	Done.
+

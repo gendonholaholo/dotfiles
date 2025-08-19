@@ -1,0 +1,228 @@
+# ===================================================================
+# ADVANCED GHOSTTY CONFIGURATION
+# ===================================================================
+# Based on official Ghostty documentation: https://ghostty.org/docs/config
+# Optimized for development work with tmux compatibility
+# 
+# Reload config: Ctrl+Shift+, (Linux) or Cmd+Shift+, (macOS)
+# View current config: ghostty +show-config
+# Validate config: ghostty +validate-config
+# ===================================================================
+
+# ===================================================================
+# THEME AND COLORS
+# ===================================================================
+# Use Homebrew theme as base (preserving current choice)
+theme = Dark Pastel
+
+# Advanced color customization (uncomment to override theme)
+# background = #1e1e1e
+# foreground = #d4d4d4
+# cursor-color = #ffffff
+# selection-background = #264f78
+# selection-foreground = #ffffff
+
+# Ensure minimum contrast for readability
+minimum-contrast = 1.2
+
+# Color blending for transparency effects
+# background-opacity = 0.95
+# background-blur-radius = 20
+
+# ===================================================================
+# TYPOGRAPHY AND FONTS
+# ===================================================================
+# Primary font with fallbacks for comprehensive coverage
+font-family = "JetBrains Mono"
+
+# Font sizing and spacing
+font-size = 13
+# Adjust cell dimensions for better spacing
+adjust-cell-width = 0
+adjust-cell-height = -1
+# adjust-font-baseline = 0
+
+# Font variations for advanced typography (commented out - not supported)
+# font-variation = "wght:400"
+# font-variation-bold = "wght:700"
+# font-variation-italic = "wght:400"
+
+# Font rendering improvements (ligatures disabled for image compatibility)
+font-synthetic-style = true
+# font-feature = "+liga"  # Enable ligatures - DISABLED for image rendering compatibility
+# font-feature = "+calt"  # Enable contextual alternates - DISABLED for image rendering compatibility
+
+# ===================================================================
+# WINDOW AND DISPLAY
+# ===================================================================
+# Window decorations and padding (preserving current settings)
+window-decoration = none
+window-padding-x = 5
+window-padding-y = 5
+
+# Advanced window settings
+# window-colorspace = srgb  # Commented out for Linux compatibility
+window-save-state = never
+window-inherit-working-directory = true
+window-inherit-font-size = true
+
+# Initial window size
+# window-width = 120
+# window-height = 40
+
+# Resize behavior
+resize-overlay = always
+resize-overlay-position = center
+resize-overlay-duration = 2s
+
+# ===================================================================
+# TERMINAL BEHAVIOR
+# ===================================================================
+# Shell integration (enhances tmux compatibility)
+shell-integration = bash
+shell-integration-features = cursor,sudo,title
+
+# Scrollback and history
+scrollback-limit = 100000
+
+# Link detection and handling
+auto-update = off
+
+# Mouse and selection behavior
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+# click-repeat-interval = 300ms  # Not supported
+
+# Bell and notifications (using supported options)
+# audible-bell = false  # Not supported
+# visual-bell = true    # Not supported
+
+# Cursor settings
+cursor-style = block
+cursor-style-blink = true
+cursor-opacity = 1.0
+
+# ===================================================================
+# CLIPBOARD AND INTEGRATION
+# ===================================================================
+# Clipboard settings for development workflow
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+
+# OSC sequences for better integration
+osc-color-report-format = 8-bit
+
+# ===================================================================
+# PERFORMANCE OPTIMIZATION
+# ===================================================================
+# VSync for smooth rendering (disabled to prevent image rendering conflicts)
+# window-vsync = true  # Commented out for Linux compatibility
+
+# Memory and performance tuning
+custom-shader-animation = true
+
+# ===================================================================
+# KEYBINDINGS (TMUX-COMPATIBLE)
+# ===================================================================
+# Essential keybindings that don't conflict with tmux
+# Note: Some keybindings may not be supported in current Ghostty version
+
+# Configuration reload (if supported)
+# keybind = ctrl+shift+comma=reload_config
+
+# Font size adjustment (if supported)
+# keybind = ctrl+plus=increase_font_size:1
+# keybind = ctrl+minus=decrease_font_size:1
+# keybind = ctrl+zero=reset_font_size
+
+# Basic keybindings are handled by default terminal behavior
+# Custom keybindings will be added as Ghostty evolves
+
+# ===================================================================
+# IMAGE RENDERING OPTIMIZATION
+# ===================================================================
+# IMPORTANT: Image rendering fixes are applied via environment variables
+# These environment variables are automatically set by the ghostty launcher script:
+#   GSK_RENDERER=gl                    - Use OpenGL for GTK rendering
+#   MESA_GL_VERSION_OVERRIDE=3.3       - Force OpenGL 3.3 compatibility
+#   MESA_GLSL_VERSION_OVERRIDE=330     - Force GLSL 3.30 compatibility
+#   unset GTK_THEME                    - Remove theme conflicts
+#   unset GTK_USE_PORTAL               - Disable portal conflicts
+#
+# For manual launch, set these environment variables:
+# export GSK_RENDERER=gl
+# export MESA_GL_VERSION_OVERRIDE=3.3
+# export MESA_GLSL_VERSION_OVERRIDE=330
+# unset GTK_THEME
+# unset GTK_USE_PORTAL
+
+# Enable GTK OpenGL debugging for image rendering diagnostics
+gtk-opengl-debug = true
+
+# UNLIMITED IMAGE SUPPORT FOR YAZI THUMBNAILS
+# Remove all image display restrictions to allow yazi thumbnails
+# Set maximum image storage limit supported by Ghostty
+# image-storage-limit = 2000000000
+
+# Note: Advanced image options will be enabled via environment variables
+# These are set automatically by the ghostty-launcher script:
+#   - TERM=xterm-ghostty (for proper terminal detection)
+#   - COLORTERM=truecolor (for full color support)
+#   - GHOSTTY_ENABLE_IMAGES=1 (enable image protocols)
+
+# Optimize minimum contrast for better image rendering
+minimum-contrast = 1.0
+
+# Ensure proper focus behavior for image applications
+focus-follows-mouse = false
+
+# ===================================================================
+# ADVANCED FEATURES
+# ===================================================================
+# Working directory tracking
+working-directory = inherit
+
+# Title behavior
+# title = "Terminal"  # Set custom title if needed
+
+# Advanced terminal features
+focus-follows-mouse = false
+
+# Image rendering for development tools
+# image-storage-limit = 320000000  # Not supported
+
+# ===================================================================
+# DEVELOPMENT ENVIRONMENT OPTIMIZATIONS
+# ===================================================================
+# Optimize for code editing and terminal work
+# word-characters = "-_.~"  # Not supported
+
+# Command repeat behavior (leave empty to use default shell)
+# command = ""  # Use default shell, don't override tmux session management
+
+# Environment variables for better tool integration
+# gtk-adwaita = true  # Use system theme integration on Linux
+
+# ===================================================================
+# TMUX INTEGRATION NOTES
+# ===================================================================
+# This configuration is designed to work seamlessly with tmux:
+# 
+# 1. No conflicting split/pane keybindings
+# 2. Shell integration enhances tmux compatibility
+# 3. Window state saving disabled to let tmux handle sessions
+# 4. Clipboard integration works with tmux's clipboard features
+# 5. Scrollback settings complement tmux's history buffer
+#
+# For automatic tmux session launch, consider adding:
+# command = /path/to/your/tmux-startup-script.sh
+#
+# Example tmux startup script:
+# #!/bin/bash
+# if tmux has-session -t ghostty 2>/dev/null; then
+#     tmux attach-session -t ghostty
+# else
+#     tmux new-session -s ghostty
+# fi
+# ===================================================================

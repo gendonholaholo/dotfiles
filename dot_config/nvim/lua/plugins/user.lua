@@ -19,6 +19,14 @@ return {
 
 	{ "rmagatti/logger.nvim" },
 
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	---@module "ibl"
+	-- 	---@type ibl.config
+	-- 	opts = {},
+	-- },
+
 	{
 		"andweeb/presence.nvim",
 		lazy = false,
@@ -137,6 +145,17 @@ return {
 			-- Panggil setup alpha dengan opts yang sudah dikonstruksi
 			alpha.setup(opts)
 		end,
+	},
+
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
 	},
 
 	-- You can disable default plugins as follows:

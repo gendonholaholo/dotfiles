@@ -7,12 +7,6 @@
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
 
-# ============================================================================
-# SECTION 1: OH-MY-TMUX FRAMEWORK VARIABLES
-# ============================================================================
-# This section contains all oh-my-tmux framework configuration variables.
-# These control the behavior and appearance of the oh-my-tmux framework.
-
 # -- bindings ------------------------------------------------------------------
 
 # preserve tmux stock bindings,
@@ -90,7 +84,6 @@ tmux_conf_24b_colour=true
 #   - tmux_conf_theme_root
 #   - tmux_conf_theme_synchronized
 tmux_conf_theme=enabled
-# tmux_conf_theme=disabled
 
 # -- Default theme colors (less relevant now, but kept for reference) --
 # tmux_conf_theme_colour_1="#080808"    # dark gray
@@ -112,12 +105,12 @@ tmux_conf_theme_colour_16="#d70000"   # red
 tmux_conf_theme_colour_17="#e4e4e4"   # white
 
 # -- Window style (less relevant for status bar) --
-tmux_conf_theme_window_fg="white"
-tmux_conf_theme_window_bg="colour233"
+tmux_conf_theme_window_fg="default"
+tmux_conf_theme_window_bg="default"
 
 # -- Focused Pane (Make it slightly lighter grey than pure black) --
-tmux_conf_theme_highlight_focused_pane=true # Default
-tmux_conf_theme_focused_pane_bg="colour16" # Set active pane background color
+tmux_conf_theme_highlight_focused_pane=true
+tmux_conf_theme_focused_pane_bg="colour16" # Set active pane background to black
 
 # -- Pane Borders --
 tmux_conf_theme_pane_border_style=thin
@@ -155,9 +148,8 @@ tmux_conf_theme_window_status_attr="none"
 tmux_conf_theme_window_status_format=" #I:#W#{?window_flags,#{window_flags},} " # No powerline
 
 # -- Window Status (Current/Active) --
-# tmux_conf_theme_window_status_current_fg="colour231"
-tmux_conf_theme_window_status_current_fg="white"
-tmux_conf_theme_window_status_current_bg="colour25"
+tmux_conf_theme_window_status_current_fg="colour231" # White text
+tmux_conf_theme_window_status_current_bg="colour25"  # Medium blue background
 tmux_conf_theme_window_status_current_attr="bold"
 tmux_conf_theme_window_status_current_format=" #I:#W#{?window_flags,#{window_flags},} " # No powerline
 
@@ -186,7 +178,7 @@ tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d
 # -- Status Right --
 # Format: [Load] | [Date] | [Time] | [Batt] | [Prefix/Mouse] | [User@Host]
 # Block 1: Load (Orange bg) | Block 2: Date/Time (Grey bg) | Block 3: Battery (Green bg)| Block 5: User/Host (Red bg)
-tmux_conf_theme_status_right="#[fg=colour231,bg=colour208] Load: #{loadavg} #[fg=colour250,bg=colour240] %d %b  %H:%M #[fg=colour232,bg=colour70] Batt: #{battery_status}#{battery_percentage} #[fg=colour232,bg=colour81] #{username}@el "
+tmux_conf_theme_status_right="#[fg=colour231,bg=colour208] Load: #{loadavg} #[fg=colour250,bg=colour240] %d %b  %H:%M #[fg=colour232,bg=colour70] Batt: #{battery_status}#{battery_percentage} #[fg=colour232,bg=colour81] #{username}@el "
 
 # -- Comment out old style variables --
 # tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -257,12 +249,13 @@ tmux_conf_copy_to_os_clipboard=true
 tmux_conf_urlscan_options="--compact --dedupe"
 
 
-# ============================================================================
-# SECTION 2: CUSTOM KEY BINDINGS & NAVIGATION
-# ============================================================================
-# This section contains all custom key bindings and navigation enhancements.
+# -- user customizations -------------------------------------------------------
 
-# -- Basic Settings --
+# this is the place to override or undo settings
+
+# increase history size
+#set -g history-limit 10000
+
 # start with mouse mode enabled
 set -g mouse on
 bind-key -T copy-mode-vi WheelUpPane send -N2 -X scroll-up
@@ -298,11 +291,6 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
-
-# ============================================================================
-# SECTION 3: PLUGIN MANAGEMENT (TPM)
-# ============================================================================
-# This section manages tmux plugins via TPM (Tmux Plugin Manager).
 
 # -- tpm -----------------------------------------------------------------------
 
@@ -345,87 +333,6 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
 
-
-# ============================================================================
-# SECTION 4: APPLICATION-SPECIFIC INTEGRATIONS
-# ============================================================================
-# This section contains integrations with specific applications like Neovim.
-
-# === smart-splits.nvim integration ===
-# Smart-splits tmux integration for seamless navigation between Neovim and tmux panes
-
-# Smart pane navigation - works with Neovim smart-splits
-bind-key -n C-h if -F '#{@pane-is-vim}' 'send-keys C-h' 'select-pane -L'
-bind-key -n C-j if -F '#{@pane-is-vim}' 'send-keys C-j' 'select-pane -D'  
-bind-key -n C-k if -F '#{@pane-is-vim}' 'send-keys C-k' 'select-pane -U'
-bind-key -n C-l if -F '#{@pane-is-vim}' 'send-keys C-l' 'select-pane -R'
-
-# copy-mode-vi support
-bind-key -T copy-mode-vi C-h select-pane -L
-bind-key -T copy-mode-vi C-j select-pane -D
-bind-key -T copy-mode-vi C-k select-pane -U
-bind-key -T copy-mode-vi C-l select-pane -R
-
-# Resize panes with Alt + hjkl
-bind-key -n M-h if -F '#{@pane-is-vim}' 'send-keys M-h' 'resize-pane -L 3'
-bind-key -n M-j if -F '#{@pane-is-vim}' 'send-keys M-j' 'resize-pane -D 3'
-bind-key -n M-k if -F '#{@pane-is-vim}' 'send-keys M-k' 'resize-pane -U 3'
-bind-key -n M-l if -F '#{@pane-is-vim}' 'send-keys M-l' 'resize-pane -R 3'
-
-
-# ============================================================================
-# SECTION 5: TERMINAL-SPECIFIC CONFIGURATIONS
-# ============================================================================
-# This section contains terminal-specific fixes and optimizations.
-
-# === WezTerm specific configuration ===
-# Force terminal overrides for WezTerm
-# set -ga terminal-overrides ",wezterm*:Tc"
-# set -ga terminal-overrides ",wezterm*:RGB"
-
-# # === Fix for inactive pane background with terminal opacity ===
-# # Force solid background for inactive panes regardless of terminal opacity
-# set -g window-style 'fg=white,bg=colour88'
-# set -g window-active-style 'fg=colour250,bg=colour0'
-#
-# # Alternative approach - force all panes to have solid backgrounds
-# set -g pane-border-style 'fg=colour53,bg=colour7'
-# # set -g pane-active-border-style 'fg=white,bg=colour232'
-
-
-# ============================================================================
-# SECTION 6: TERMINAL COLOR INHERITANCE 
-# ============================================================================
-# Make tmux inherit colors and fonts from terminal
-
-# Enable terminal color inheritance
-set -g default-terminal "tmux-256color"
-set -ga terminal-overrides ",*:Tc"
-set -ga terminal-overrides ",*:RGB"
-
-set -g allow-passthrough on
-set -ga update-environment TERM
-set -ga update-environment TERM_PROGRAM
-
-# Make background transparent to match terminal
-# set -g status-style 'bg=default,fg=default'
-# set -g window-status-style 'bg=default,fg=default'
-# set -g window-status-current-style 'bg=default,fg=default'
-# set -g window-style 'bg=default,fg=default'
-# set -g window-active-style 'bg=default,fg=default'
-
-# Make pane borders use terminal colors
-# set -g pane-border-style 'fg=default,bg=default'
-# set -g pane-active-border-style 'fg=default,bg=default'
-
-# Make message colors inherit from terminal
-# set -g message-style 'bg=default,fg=default'
-# set -g message-command-style 'bg=default,fg=default'
-
-# ============================================================================
-# SECTION 7: CUSTOM VARIABLES & FUNCTIONS
-# ============================================================================
-# This section provides templates for custom tmux variables and functions.
 
 # -- custom variables ----------------------------------------------------------
 
@@ -480,3 +387,37 @@ set -ga update-environment TERM_PROGRAM
 # "$@"
 # # /!\ do not remove the previous line
 # #     do not write below this line
+
+# === smart-splits.nvim integration ===
+# Smart-splits tmux integration
+bind-key -n C-h if -F '#{@pane-is-vim}' 'send-keys C-h' 'select-pane -L'
+bind-key -n C-j if -F '#{@pane-is-vim}' 'send-keys C-j' 'select-pane -D'  
+bind-key -n C-k if -F '#{@pane-is-vim}' 'send-keys C-k' 'select-pane -U'
+bind-key -n C-l if -F '#{@pane-is-vim}' 'send-keys C-l' 'select-pane -R'
+
+# copy-mode-vi support
+bind-key -T copy-mode-vi C-h select-pane -L
+bind-key -T copy-mode-vi C-j select-pane -D
+bind-key -T copy-mode-vi C-k select-pane -U
+bind-key -T copy-mode-vi C-l select-pane -R
+
+# Resize panes with Alt + hjkl
+bind-key -n M-h if -F '#{@pane-is-vim}' 'send-keys M-h' 'resize-pane -L 3'
+bind-key -n M-j if -F '#{@pane-is-vim}' 'send-keys M-j' 'resize-pane -D 3'
+bind-key -n M-k if -F '#{@pane-is-vim}' 'send-keys M-k' 'resize-pane -U 3'
+bind-key -n M-l if -F '#{@pane-is-vim}' 'send-keys M-l' 'resize-pane -R 3'
+
+# === WezTerm specific configuration ===
+# Force terminal overrides for WezTerm
+set -ga terminal-overrides ",wezterm*:Tc"
+set -ga terminal-overrides ",wezterm*:RGB"
+
+# === Fix for inactive pane background with terminal opacity ===
+# Force solid background for inactive panes regardless of terminal opacity
+set -g window-style 'fg=white,bg=colour88'
+set -g window-active-style 'fg=colour250,bg=colour0'
+
+# Alternative approach - force all panes to have solid backgrounds
+set -g pane-border-style 'fg=colour53,bg=colour0'
+# set -g pane-active-border-style 'fg=colour25,bg=colour232'
+

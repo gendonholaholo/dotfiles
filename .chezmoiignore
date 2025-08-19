@@ -1,0 +1,9 @@
+# Ignore files with sensitive information
+.bashrc.local
+.env*
+**/secrets/**
+**/.env*
+**/api_keys
+**/*key*
+**/*secret*
+**/*token*

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcp-chain-of-thought__process_thought",
+      "mcp__exa__web_search_exa",
+      "Bash(rm:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

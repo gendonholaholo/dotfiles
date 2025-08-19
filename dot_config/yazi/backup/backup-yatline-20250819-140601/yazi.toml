@@ -1,0 +1,102 @@
+# Enhanced Configuration for Yazi File Manager
+# More powerful setup with advanced plugins and features
+
+[mgr]
+# Better layout ratios for enhanced viewing
+ratio = [1, 3, 4]
+# Show borders for better visual separation
+show_border = true
+# Sort directories first
+sort_dir_first = true
+# Show hidden files by default (toggle with .)
+show_hidden = false
+# Show symlink target
+show_symlink = true
+
+[preview]
+# Enhanced preview settings
+tab_size = 2
+max_width = 600
+max_height = 900
+cache_dir = ""
+# Image preview with better quality
+image_filter = "lanczos3"
+image_quality = 90
+
+[plugin]
+prepend_previewers = [
+  # Video thumbnails using ffmpegthumbnailer
+  { mime = "video/*", run = "video" },
+  # Use built-in image previewer (supports Kitty protocol natively)
+  # Enhanced markdown preview
+  { name = "*.md", run = "glow -p" },
+  # Data file previews
+  { name = "*.{csv,tsv}", run = "duckdb" },
+  { name = "*.json", run = "duckdb" },
+  { name = "*.parquet", run = "duckdb" },
+  # Media file information (as fallback for image details)
+  { name = "*.{mp4,mkv,avi,mov,wmv,flv,webm}", run = "mediainfo" },
+  { name = "*.{mp3,flac,wav,aac,ogg,m4a}", run = "mediainfo" },
+  # Archive content preview
+  { name = "*.{zip,tar,gz,bz2,xz,7z,rar}", run = "archive" },
+]
+
+prepend_fetchers = [
+  # Git status integration
+  { id = "git", name = "*", run = "git" },
+  { id = "git", name = "*/", run = "git" },
+]
+
+[open]
+prepend_rules = [
+  # Archive handling - extract instead of opening
+  { mime = "application/{,g}zip", use = [
+    "extract",
+  ] },
+  { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [
+    "extract",
+  ] },
+  # Media files - open with appropriate viewers
+  { mime = "image/*", use = [
+    "open",
+    "reveal",
+  ] },
+  { mime = "video/*", use = [
+    "play",
+  ] },
+  { mime = "audio/*", use = [
+    "play",
+  ] },
+  # Text files - open in editor
+  { mime = "text/*", use = [
+    "edit",
+    "reveal",
+  ] },
+  { name = "*.{json,yaml,yml,toml,xml}", use = [
+    "edit",
+    "reveal",
+  ] },
+]
+
+[opener]
+# Enhanced file opening rules
+edit = [
+  { run = 'nvim "$1"', block = true, desc = "Open in editor (gosel)" },
+  { run = '$EDITOR "$1"', block = true, desc = "Open in default editor" },
+]
+open = [{ run = 'xdg-open "$1"', desc = "Open with default application" }]
+reveal = [
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal in file manager" },
+]
+extract = [
+  { run = 'unar "$1"', desc = "Extract archive" },
+  { run = '7z x "$1"', desc = "Extract with 7z" },
+]
+play = [
+  { run = 'mpv "$1"', desc = "Play with mpv" },
+  { run = 'vlc "$1"', desc = "Play with VLC" },
+]
+
+# Log settings for debugging
+[log]
+enabled = true

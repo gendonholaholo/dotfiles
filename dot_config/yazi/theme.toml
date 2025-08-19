@@ -1,0 +1,239 @@
+# Enhanced Yazi Theme Configuration
+# Modern, clean theme with improved visual hierarchy
+
+[mgr]
+# Hover highlighting
+cwd = { fg = "cyan", bold = true }
+hovered = { bg = "white", fg = "black", bold = false }
+preview_hovered = { underline = true }
+
+# File selection
+selected = { bg = "blue", fg = "white" }
+tab_active = { bg = "blue", fg = "white", bold = true }
+tab_inactive = { bg = "darkgray", fg = "lightgray" }
+
+# Borders and separators
+# border_symbol = "│"
+border_symbol = "|"
+# border_symbol = "┌┐└┘├┤┬┴┼─│"
+# border_symbol = "║"
+border_style = { fg = "gray" }
+
+[status]
+# Status line styling with sharp corners
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Hide progress bar by making it transparent/invisible
+progress_label = { fg = "black", bg = "black" }  # Make invisible
+progress_normal = { fg = "black", bg = "black" }  # Make invisible
+progress_error = { fg = "black", bg = "black" }   # Make invisible
+
+[mode]
+# Mode indicator shapes (sharp corners)
+normal_main = { bg = "blue", fg = "white", bold = true }
+normal_alt = { bg = "blue", fg = "white" }
+select_main = { bg = "green", fg = "black", bold = true }
+select_alt = { bg = "green", fg = "black" }
+unset_main = { bg = "magenta", fg = "white", bold = true }
+unset_alt = { bg = "magenta", fg = "white" }
+
+[input]
+# Input field styling
+border = { fg = "blue" }
+title = { fg = "cyan", bold = true }
+value = { fg = "white" }
+selected = { bg = "blue", fg = "white" }
+
+[select]
+# Selection menu styling
+border = { fg = "blue" }
+active = { fg = "cyan", bold = true }
+inactive = { fg = "white" }
+
+[tasks]
+# Task manager styling
+border = { fg = "blue" }
+title = { fg = "cyan", bold = true }
+hovered = { bg = "darkgray", bold = true }
+
+[which]
+# Help/which-key styling
+border = { fg = "blue" }
+title = { fg = "cyan", bold = true }
+value = { fg = "white" }
+desc = { fg = "lightgray" }
+separator = " → "
+separator_style = { fg = "darkgray" }
+
+[help]
+# Help system styling
+border = { fg = "blue" }
+title = { fg = "cyan", bold = true }
+on = { fg = "green", bold = true }
+run = { fg = "blue" }
+desc = { fg = "lightgray" }
+# hovered = { bg = "darkgray", bold = true }
+hovered = { bg = "darkgray", bold = true }
+footer = { fg = "yellow" }
+
+[notify]
+# Notification styling
+title = { fg = "cyan", bold = true }
+icon_info = "ℹ"
+icon_warn = "⚠"
+icon_error = "✗"
+
+[filetype]
+# Enhanced file type colors and icons
+rules = [
+  # Programming languages
+  { name = "*.rs", fg = "red" },
+  { name = "*.go", fg = "cyan" },
+  { name = "*.py", fg = "yellow" },
+  { name = "*.js", fg = "yellow" },
+  { name = "*.ts", fg = "blue" },
+  { name = "*.jsx", fg = "cyan" },
+  { name = "*.tsx", fg = "cyan" },
+  { name = "*.vue", fg = "green" },
+  { name = "*.php", fg = "blue" },
+  { name = "*.rb", fg = "red" },
+  { name = "*.java", fg = "red" },
+  { name = "*.c", fg = "blue" },
+  { name = "*.cpp", fg = "blue" },
+  { name = "*.h", fg = "blue" },
+  { name = "*.hpp", fg = "blue" },
+  { name = "*.cs", fg = "green" },
+  { name = "*.swift", fg = "red" },
+  { name = "*.kt", fg = "magenta" },
+  { name = "*.scala", fg = "red" },
+  { name = "*.clj", fg = "green" },
+  { name = "*.hs", fg = "magenta" },
+  { name = "*.ml", fg = "yellow" },
+  { name = "*.elm", fg = "blue" },
+
+  # Web technologies
+  { name = "*.html", fg = "red" },
+  { name = "*.css", fg = "blue" },
+  { name = "*.scss", fg = "magenta" },
+  { name = "*.sass", fg = "magenta" },
+  { name = "*.less", fg = "blue" },
+  { name = "*.xml", fg = "green" },
+  { name = "*.svg", fg = "yellow" },
+
+  # Data formats
+  { name = "*.json", fg = "yellow" },
+  { name = "*.yaml", fg = "magenta" },
+  { name = "*.yml", fg = "magenta" },
+  { name = "*.toml", fg = "yellow" },
+  { name = "*.ini", fg = "gray" },
+  { name = "*.conf", fg = "gray" },
+  { name = "*.config", fg = "gray" },
+  { name = "*.csv", fg = "green" },
+  { name = "*.tsv", fg = "green" },
+  { name = "*.parquet", fg = "blue" },
+
+  # Documents
+  { name = "*.md", fg = "cyan", bold = true },
+  { name = "*.txt", fg = "white" },
+  { name = "*.pdf", fg = "red" },
+  { name = "*.doc", fg = "blue" },
+  { name = "*.docx", fg = "blue" },
+  { name = "*.xls", fg = "green" },
+  { name = "*.xlsx", fg = "green" },
+  { name = "*.ppt", fg = "yellow" },
+  { name = "*.pptx", fg = "yellow" },
+
+  # Media files
+  { name = "*.jpg", fg = "magenta" },
+  { name = "*.jpeg", fg = "magenta" },
+  { name = "*.png", fg = "magenta" },
+  { name = "*.gif", fg = "magenta" },
+  { name = "*.bmp", fg = "magenta" },
+  { name = "*.webp", fg = "magenta" },
+  { name = "*.svg", fg = "yellow" },
+  { name = "*.ico", fg = "yellow" },
+  { name = "*.mp3", fg = "cyan" },
+  { name = "*.wav", fg = "cyan" },
+  { name = "*.flac", fg = "cyan" },
+  { name = "*.ogg", fg = "cyan" },
+  { name = "*.m4a", fg = "cyan" },
+  { name = "*.mp4", fg = "blue" },
+  { name = "*.avi", fg = "blue" },
+  { name = "*.mkv", fg = "blue" },
+  { name = "*.mov", fg = "blue" },
+  { name = "*.wmv", fg = "blue" },
+  { name = "*.webm", fg = "blue" },
+
+  # Archives
+  { name = "*.zip", fg = "red", bold = true },
+  { name = "*.tar", fg = "red" },
+  { name = "*.gz", fg = "red" },
+  { name = "*.bz2", fg = "red" },
+  { name = "*.xz", fg = "red" },
+  { name = "*.7z", fg = "red" },
+  { name = "*.rar", fg = "red" },
+
+  # System and config files
+  { name = "Dockerfile", fg = "blue", bold = true },
+  { name = "*.dockerfile", fg = "blue" },
+  { name = "docker-compose.yml", fg = "blue", bold = true },
+  { name = "*.env", fg = "yellow" },
+  { name = ".env*", fg = "yellow" },
+  { name = "*.log", fg = "gray" },
+  { name = "*.lock", fg = "gray" },
+  { name = "package.json", fg = "green", bold = true },
+  { name = "yarn.lock", fg = "blue" },
+  { name = "Cargo.toml", fg = "yellow", bold = true },
+  { name = "Cargo.lock", fg = "yellow" },
+  { name = "go.mod", fg = "cyan", bold = true },
+  { name = "go.sum", fg = "cyan" },
+  { name = "requirements.txt", fg = "yellow", bold = true },
+  { name = "poetry.lock", fg = "blue" },
+  { name = "pyproject.toml", fg = "blue", bold = true },
+  { name = "Makefile", fg = "green", bold = true },
+  { name = "CMakeLists.txt", fg = "blue", bold = true },
+  { name = "*.makefile", fg = "green" },
+  { name = "*.mk", fg = "green" },
+
+  # Git and version control
+  { name = ".gitignore", fg = "gray", bold = true },
+  { name = ".gitmodules", fg = "gray" },
+  { name = ".gitattributes", fg = "gray" },
+  { name = "LICENSE", fg = "white", bold = true },
+  { name = "README*", fg = "cyan", bold = true },
+  { name = "CHANGELOG*", fg = "green", bold = true },
+
+  # Special files
+  { name = "*/", fg = "white", bold = false }, # Directories
+  { name = ".*", fg = "gray" },                # Hidden files
+  { name = "*~", fg = "gray" },                # Backup files
+  { name = "*.tmp", fg = "gray" },             # Temporary files
+  { name = "*.bak", fg = "gray" },             # Backup files
+]
+
+[icon]
+# File type icons (requires Nerd Font)
+rules = [
+  { name = "*/", text = "📁" },
+  { name = "*.rs", text = "🦀" },
+  { name = "*.go", text = "🐹" },
+  { name = "*.py", text = "🐍" },
+  { name = "*.js", text = "💛" },
+  { name = "*.ts", text = "💙" },
+  { name = "*.json", text = "📄" },
+  { name = "*.md", text = "📝" },
+  { name = "*.zip", text = "📦" },
+  { name = "*.tar", text = "📦" },
+  { name = "*.gz", text = "📦" },
+  { name = "*.jpg", text = "🖼️" },
+  { name = "*.png", text = "🖼️" },
+  { name = "*.gif", text = "🖼️" },
+  { name = "*.mp3", text = "🎵" },
+  { name = "*.mp4", text = "🎬" },
+  { name = "*.pdf", text = "📕" },
+  { name = "README*", text = "📖" },
+  { name = "LICENSE", text = "📜" },
+  { name = "Dockerfile", text = "🐳" },
+  { name = ".git/", text = "🌿" },
+]

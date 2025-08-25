@@ -1,0 +1,11 @@
+# pack-refs with: peeled fully-peeled sorted 
+ecef3aa09c25ab5dfe576a6231da6f2b5cec9cff refs/remotes/origin/issue_10
+999fc5d2f57f8dd33b581cd64402d9134a7ca6b5 refs/remotes/origin/issue_45
+fe87d9ff3ed59242cb047286311739adfa6800fa refs/remotes/origin/main
+cf5f3fc859ea597ef6efc982d42fd1e8ae79b013 refs/remotes/origin/plugin_exploration
+ffebbe14797cda24d24de13095b22338bc5df830 refs/remotes/origin/v4
+434bd78d3facf8ca2b2067bb16a6de19c0b6cb84 refs/remotes/origin/v4.1
+4a9582266afd50b54729e691ecbb69f64be7e23e refs/remotes/origin/v5
+a7c4ef1487bd7752a954ba0ccd2baa78d439f1ce refs/remotes/origin/v5.1
+c1a791ddea29646d1f4256612e610bf65e0f6cc5 refs/remotes/origin/v6
+d8a152183a9eabed30f212d17adfa495a0a64b3b refs/remotes/origin/zoxide_temporary_fix

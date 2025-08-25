@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcp-chain-of-thought__process_thought"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

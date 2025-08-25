@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcp-chain-of-thought__process_thought",
+      "WebFetch(domain:ghostty.org)",
+      "Bash(ghostty +validate-config)",
+      "Bash(elterm:*)",
+      "mcp__context7-mcp__resolve-library-id",
+      "mcp__context7-mcp__get-library-docs",
+      "Bash(ghostty:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "/home/Gos/Apps/elterm"
+    ]
+  }
+}

@@ -1,44 +1,11 @@
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- Here are some examples:
+-- User plugins configuration
+-- This file contains custom plugins organized by category
 
 ---@type LazySpec
 return {
-
-	-- == Examples of Adding Plugins ==
-
-	-- {
-	--   "jackMort/ChatGPT.nvim",
-	--   event = "VeryLazy",
-	--   config = function() require("chatgpt").setup() end,
-	--   dependencies = {
-	--     "MunifTanjim/nui.nvim",
-	--     "nvim-lua/plenary.nvim",
-	--     "nvim-telescope/telescope.nvim",
-	--   },
-	-- },
+	-- == Utility & Development Tools ==
 
 	{ "rmagatti/logger.nvim" },
-
-	{
-		"andweeb/presence.nvim",
-		lazy = false,
-		opts = {
-			auto_update = false, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-		},
-	},
-
-	-- {
-	--   "wakatime/vim-wakatime",
-	--   lazy = false,
-	-- },
-
-	{
-		"vyfor/cord.nvim",
-		build = "./build || .\\build",
-		"IogaMaster/neocord",
-		event = "VeryLazy",
-		opts = {},
-	},
 
 	{
 		"ngtuonghy/live-server-nvim",
@@ -69,7 +36,8 @@ return {
 		config = true,
 	},
 
-	"andweeb/presence.nvim",
+	-- == LSP & Code Intelligence ==
+
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "BufRead",
@@ -77,6 +45,42 @@ return {
 			require("lsp_signature").setup()
 		end,
 	},
+
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+	},
+
+	-- == Discord & Social ==
+
+	{
+		"andweeb/presence.nvim",
+		lazy = false,
+		opts = {
+			auto_update = false, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+		},
+	},
+
+	{
+		"vyfor/cord.nvim",
+		build = "./build || .\\build",
+		event = "VeryLazy",
+		opts = {},
+	},
+
+	{
+		"IogaMaster/neocord",
+		event = "VeryLazy",
+		opts = {},
+	},
+
+	-- == UI & Themes ==
 
 	{
 		"scottmckendry/cyberdream.nvim",
@@ -126,7 +130,7 @@ return {
 				"██║   ██║██║   ██║╚════██║",
 				"╚██████╔╝╚██████╔╝███████║",
 				"╚═════╝  ╚═════╝ ╚══════╝",
-				"        ███████╗██╗",
+				"        ███████╗██║",
 				"        ██╔════╝██║",
 				"  █████╗█████╗  ██║",
 				"  ╚════╝██╔══╝  ██║",
@@ -139,10 +143,13 @@ return {
 		end,
 	},
 
-	-- You can disable default plugins as follows:
+	-- == Plugin Overrides ==
+
+	-- Disable default plugins as needed
 	{ "max397574/better-escape.nvim", enabled = false },
 
-	-- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
+	-- == Enhanced Plugin Configurations ==
+
 	{
 		"L3MON4D3/LuaSnip",
 		config = function(plugin, opts)

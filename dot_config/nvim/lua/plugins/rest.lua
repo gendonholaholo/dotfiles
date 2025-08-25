@@ -1,68 +1,69 @@
-return {
-  "rest-nvim/rest.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
-  },
-  config = function()
-    require("rest-nvim").setup {
-      -- Rest.nvim default configuration
-      request = {
-        skip_ssl_verification = false,
-        hooks = {
-          encode_url = true,
-          user_agent = "rest.nvim v" .. require("rest-nvim.api").VERSION,
-          set_content_type = true,
-        },
-      },
-      response = {
-        hooks = {
-          decode_url = true,
-          format = true,
-        },
-      },
-      clients = {
-        curl = {
-          statistics = {
-            { id = "time_total", winbar = "take", title = "Time taken" },
-            { id = "size_download", winbar = "size", title = "Download size" },
-          },
-          opts = {
-            set_compressed = false,
-            certificates = {},
-          },
-        },
-      },
-      cookies = {
-        enable = true,
-        path = vim.fn.stdpath "data" .. "/rest-nvim.cookies",
-      },
-      env = {
-        enable = true,
-        pattern = ".*%.env.*",
-        find = function()
-          local config = require "rest-nvim.config"
-          return vim.fs.find(function(name, _) return name:match(config.env.pattern) end, {
-            path = vim.fn.getcwd(),
-            type = "file",
-            limit = math.huge,
-          })
-        end,
-      },
-      ui = {
-        winbar = true,
-        keybinds = {
-          prev = "H",
-          next = "L",
-        },
-      },
-      highlight = {
-        enable = true,
-        timeout = 750,
-      },
-      _log_level = vim.log.levels.WARN,
-    }
+-- File: lua/plugins/rest.lua
+-- Konfigurasi lengkap untuk rest.nvim dan semua dependensinya
 
-    vim.api.nvim_set_keymap("n", "<leader>r", ":Rest run<CR>", { noremap = true, silent = true })
-  end,
+return {
+	-- 1. Fidget UI untuk notifikasi (dependensi)
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	},
+
+	-- 2. Mason sebagai dasar untuk instalasi tool
+	{
+		"williamboman/mason.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+
+	-- 3. Installer untuk Mason (dependensi)
+	-- {
+	-- 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- 	dependencies = { "williamboman/mason.nvim" },
+	-- 	opts = {
+	-- 		ensure_installed = {
+	-- 			{
+	-- 				"luarocks",
+	-- 				packages = { "xml2lua", "lua-mimetypes" },
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+
+	-- 4. Plugin rest.nvim (TARGET UTAMA)
+	{
+		"rest-nvim/rest.nvim",
+		ft = "http",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"j-hui/fidget.nvim",
+		},
+		config = function()
+			require("rest-nvim").setup({
+				rocks = {
+					hererocks = true,
+				},
+				result = {
+					split_horizontal = false,
+					split_in_place = false,
+					behavior = {
+						decode_url = true,
+						show_info = {
+							url = true,
+							headers = true,
+							http_info = true,
+							curl_command = true,
+						},
+					},
+				},
+				highlight = {
+					enabled = true,
+					timeout = 750,
+				},
+				jump_to_request = false,
+				env_file = '.env',
+				custom_dynamic_variables = {},
+				yank_dry_run = true,
+			})
+		end,
+	},
 }

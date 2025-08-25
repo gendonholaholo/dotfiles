@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# ===================================================================
+# GHOSTTY ALIAS SETUP SCRIPT
+# ===================================================================
+# This script sets up an alias to use the fixed ghostty launcher by default.
+# Run this script to automatically configure your shell to use the image-fix launcher.
+#
+# Usage: bash ~/.config/ghostty/setup-alias
+# ===================================================================
+
+LAUNCHER_PATH="$HOME/.config/ghostty/ghostty-launcher"
+ALIAS_LINE="alias ghostty='$LAUNCHER_PATH'"
+
+echo "Setting up Ghostty launcher alias..."
+
+# Detect shell and add alias
+if [[ "$SHELL" == *"bash"* ]]; then
+    SHELL_RC="$HOME/.bashrc"
+    echo "Detected bash shell"
+elif [[ "$SHELL" == *"zsh"* ]]; then
+    SHELL_RC="$HOME/.zshrc"
+    echo "Detected zsh shell"
+else
+    echo "Unknown shell: $SHELL"
+    echo "Please manually add this line to your shell configuration:"
+    echo "$ALIAS_LINE"
+    exit 1
+fi
+
+# Check if alias already exists
+if grep -q "alias ghostty=" "$SHELL_RC" 2>/dev/null; then
+    echo "Ghostty alias already exists in $SHELL_RC"
+    echo "Current alias:"
+    grep "alias ghostty=" "$SHELL_RC"
+    echo ""
+    read -p "Replace with new launcher? (y/N): " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        # Remove existing alias and add new one
+        sed -i '/alias ghostty=/d' "$SHELL_RC"
+        echo "$ALIAS_LINE" >> "$SHELL_RC"
+        echo "✅ Alias updated in $SHELL_RC"
+    else
+        echo "Alias not changed."
+        exit 0
+    fi
+else
+    # Add new alias
+    echo "$ALIAS_LINE" >> "$SHELL_RC"
+    echo "✅ Alias added to $SHELL_RC"
+fi
+
+echo ""
+echo "🎉 Setup complete!"
+echo "To use immediately, run: source $SHELL_RC"
+echo "Or open a new terminal window."
+echo ""
+echo "The 'ghostty' command will now use the image-fix launcher automatically."

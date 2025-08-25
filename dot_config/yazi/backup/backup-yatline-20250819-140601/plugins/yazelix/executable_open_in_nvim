@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Dipanggil dengan argumen: $1" >> /tmp/yazi_debug.log
+tmux send-keys -t right "nvim '$1'" C-m

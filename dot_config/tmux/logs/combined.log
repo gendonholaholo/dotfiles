@@ -1,0 +1,36 @@
+{"level":"info","message":"Starting PRD Creator MCP Server...","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.381Z"}
+{"level":"info","message":"Initializing storage...","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.382Z"}
+{"level":"info","message":"Initializing storage layer","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.383Z"}
+{"level":"info","message":"Initializing SQLite database at /home/Gos/.npm/_npx/fad007c2b4234300/node_modules/prd-creator-mcp/data/prd-creator.db","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.383Z"}
+{"level":"info","message":"Database schema created successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.386Z"}
+{"level":"info","message":"deleted column already exists in templates table","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.387Z"}
+{"level":"info","message":"Initializing default templates","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.387Z"}
+{"level":"info","message":"Found 2 existing templates, skipping initialization","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.389Z"}
+{"level":"info","message":"Storage layer initialized successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.390Z"}
+{"level":"info","message":"Creating MCP server...","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.390Z"}
+{"level":"info","message":"Registering PRD Creator tools","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.390Z"}
+{"level":"info","message":"All PRD Creator tools registered successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.390Z"}
+{"level":"info","message":"Registering PRD Creator resources","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.391Z"}
+{"level":"info","message":"Registering PRD Templates resources","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.391Z"}
+{"level":"info","message":"PRD Templates resources registered successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.391Z"}
+{"level":"info","message":"All PRD Creator resources registered successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.391Z"}
+{"level":"info","message":"Connecting server with STDIO transport...","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.391Z"}
+{"level":"info","message":"PRD Creator MCP Server running with STDIO transport","service":"prd-creator-mcp","timestamp":"2025-08-16T04:25:32.391Z"}
+{"level":"info","message":"Starting PRD Creator MCP Server...","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.860Z"}
+{"level":"info","message":"Initializing storage...","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.861Z"}
+{"level":"info","message":"Initializing storage layer","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.862Z"}
+{"level":"info","message":"Initializing SQLite database at /home/Gos/.npm/_npx/fad007c2b4234300/node_modules/prd-creator-mcp/data/prd-creator.db","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.862Z"}
+{"level":"info","message":"Database schema created successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.864Z"}
+{"level":"info","message":"deleted column already exists in templates table","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.865Z"}
+{"level":"info","message":"Initializing default templates","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.866Z"}
+{"level":"info","message":"Found 2 existing templates, skipping initialization","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.868Z"}
+{"level":"info","message":"Storage layer initialized successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.868Z"}
+{"level":"info","message":"Creating MCP server...","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.868Z"}
+{"level":"info","message":"Registering PRD Creator tools","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.868Z"}
+{"level":"info","message":"All PRD Creator tools registered successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.868Z"}
+{"level":"info","message":"Registering PRD Creator resources","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.868Z"}
+{"level":"info","message":"Registering PRD Templates resources","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.869Z"}
+{"level":"info","message":"PRD Templates resources registered successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.869Z"}
+{"level":"info","message":"All PRD Creator resources registered successfully","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.869Z"}
+{"level":"info","message":"Connecting server with STDIO transport...","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.869Z"}
+{"level":"info","message":"PRD Creator MCP Server running with STDIO transport","service":"prd-creator-mcp","timestamp":"2025-08-16T05:12:12.869Z"}

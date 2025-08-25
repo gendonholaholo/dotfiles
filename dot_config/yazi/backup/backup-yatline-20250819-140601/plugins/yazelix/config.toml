@@ -1,0 +1,13 @@
+[modules]
+file_preview = true
+image_preview = true
+media_preview = true
+git_status = true
+fzf_select = true
+archives = true
+trash = true
+mount = true
+
+[settings]
+image_backend = "ueberzugpp"
+plugin_path = "~/.config/yazi/plugins/yazelix"

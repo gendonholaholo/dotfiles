@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcp-chain-of-thought__process_thought",
+      "WebFetch(domain:yazi-rs.github.io)",
+      "mcp__exa__web_search_exa",
+      "Bash(ya pack:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(yazi:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "/home/Gos"
+    ]
+  }
+}

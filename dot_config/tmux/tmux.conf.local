@@ -491,7 +491,41 @@ set -ga update-environment TERM_PROGRAM
 #   curl -s "$url" | perl -MJSON::PP=decode_json -CO -0777 -E '$response = decode_json(readline *STDIN); say ($response->{stargazers_count})'
 #   sleep 300                                         # sleep for 5 minutes, throttle network requests whatever the value of status-interval
 # }
-#
+
+# ============================================================================
+# CUSTOM: F10 Yazi Popup Integration  
+# ============================================================================
+# Global F10 binding for yazi file manager popup
+# Works from any tmux session/window/pane without conflicts
+
+# F10 to toggle yazi popup with PERSISTENT SESSION
+bind-key -n F10 run-shell '
+    # Check if persistent yazi session exists
+    if ! tmux has-session -t yazi-persistent 2>/dev/null; then
+        # Create persistent background session (never killed)
+        tmux new-session -d -s yazi-persistent -c "#{pane_current_path}" "yazi"
+    fi
+    
+    # Check if popup is currently visible (client attached to yazi-persistent)
+    if tmux list-clients -t yazi-persistent 2>/dev/null | grep -q .; then
+        # Popup is visible, hide it by detaching all clients
+        tmux detach-client -s yazi-persistent -a
+    else  
+        # Popup is hidden, show it with display-popup
+        tmux display-popup -E -h 90% -w 90% -d "#{pane_current_path}" "tmux attach -t yazi-persistent"
+    fi
+'
+
+# Optional: Cleanup command to kill persistent session when needed
+bind-key -n C-F10 run-shell '
+    if tmux has-session -t yazi-persistent 2>/dev/null; then
+        tmux kill-session -t yazi-persistent
+        tmux display-message "Yazi persistent session killed"
+    else
+        tmux display-message "No yazi persistent session found"  
+    fi
+'
+
 # "$@"
 # # /!\ do not remove the previous line
 # #     do not write below this line

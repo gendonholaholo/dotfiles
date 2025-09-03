@@ -191,6 +191,7 @@ tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d
 # Block 1: Load (Orange bg) | Block 2: Date/Time (Grey bg) | Block 3: Battery (Green bg)| Block 5: User/Host (Red bg)
 tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
 
+
 # -- Comment out old style variables --
 # tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
 # tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_9,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_11"
@@ -360,6 +361,22 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
 
+# -- tmux-fzf plugin ----------------------------------------------------------
+set -g @plugin 'sainnhe/tmux-fzf'
+
+# tmux-fzf configuration
+set-environment -g TMUX_FZF_LAUNCH_KEY "F"
+set-environment -g TMUX_FZF_OPTIONS "-p -w 80% -h 70% --border=rounded --info=inline --layout=reverse"
+set-environment -g TMUX_FZF_ORDER "session|window|pane|command|keybinding"
+set-environment -g TMUX_FZF_PREVIEW "1"
+set-environment -g TMUX_FZF_WINDOW_FORMAT "#{window_name} [#{window_panes} panes]"
+set-environment -g TMUX_FZF_SESSION_FORMAT "#{session_windows} windows"
+set-environment -g TMUX_FZF_PANE_FORMAT "[#{window_name}] #{pane_current_command} [#{pane_width}x#{pane_height}]"
+
+# Custom tmux-fzf key bindings for session/window management
+bind-key s run-shell -b '~/.config/tmux/plugins/tmux-fzf/scripts/session.sh switch'
+bind-key w run-shell -b '~/.config/tmux/plugins/tmux-fzf/scripts/window.sh switch'
+
 
 # ============================================================================
 # SECTION 4: APPLICATION-SPECIFIC INTEGRATIONS
@@ -418,7 +435,32 @@ set -g default-terminal "tmux-256color"
 set -ga terminal-overrides ",*:Tc"
 set -ga terminal-overrides ",*:RGB"
 
+# ============================================================================
+# GHOSTTY + TMUX IMAGE PROTOCOL FIX
+# ============================================================================
+# Based on TMUX docs: passthrough sequences need specific format
+# Format: \033Ptmux;\033<original_sequence>\033\
+
+# STEP 1: Enable passthrough globally  
 set -g allow-passthrough on
+
+# STEP 2: Set correct terminal type for Ghostty in TMUX
+set -g default-terminal "tmux-256color"
+
+# STEP 3: Add terminal features for modern terminals 
+set -ga terminal-features ',*:RGB:clipboard:ccolour:cstyle:focus:title:sync'
+
+# STEP 4: Critical - Ghostty specific terminal overrides
+set -ga terminal-overrides ',ghostty*:Tc:RGB:clipboard:sync:title:focus'
+set -ga terminal-overrides ',xterm-ghostty:Tc:RGB:clipboard:sync:title:focus'
+
+# STEP 5: Enable all modern terminal features
+set -g focus-events on  
+set -g set-clipboard on
+set -g mouse on
+set -g escape-time 0
+
+# Update environment variables
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
 
@@ -491,7 +533,83 @@ set -ga update-environment TERM_PROGRAM
 #   curl -s "$url" | perl -MJSON::PP=decode_json -CO -0777 -E '$response = decode_json(readline *STDIN); say ($response->{stargazers_count})'
 #   sleep 300                                         # sleep for 5 minutes, throttle network requests whatever the value of status-interval
 # }
-#
+
+# ============================================================================
+# CUSTOM: F11 Yazi Popup Integration with Ghostty Image Preview
+# ============================================================================
+# Global F11 binding for yazi file manager popup with image support
+# Optimized for Ghostty terminal with Kitty graphics protocol
+
+# Basic terminal support (image preview removed for simplicity)
+set -ag terminal-overrides ",*:Tc"
+
+# F11 to toggle yazi popup with PERSISTENT SESSION (no image preview)
+bind-key -n F11 run-shell '
+    # Check if persistent yazi session exists
+    if ! tmux has-session -t yazi-persistent 2>/dev/null; then
+        # Create persistent background session
+        tmux new-session -d -s yazi-persistent -c "#{pane_current_path}" "yazi"
+    fi
+    
+    # Check if popup is currently visible (client attached to yazi-persistent)
+    if tmux list-clients -t yazi-persistent 2>/dev/null | grep -q .; then
+        # Popup is visible, hide it by detaching all clients
+        tmux detach-client -s yazi-persistent -a
+    else  
+        # Popup is hidden, show it with display-popup
+        tmux display-popup -E -h 90% -w 90% -d "#{pane_current_path}" \
+            "tmux attach -t yazi-persistent"
+    fi
+'
+
+# Optional: Cleanup command to kill persistent session when needed
+bind-key -n C-F11 run-shell '
+    if tmux has-session -t yazi-persistent 2>/dev/null; then
+        tmux kill-session -t yazi-persistent
+        tmux display-message "Yazi persistent session killed"
+    else
+        tmux display-message "No yazi persistent session found"  
+    fi
+'
+
+# ============================================================================
+# CUSTOM: F9 YouTube-TUI External Launcher (FIXES IMAGE BLUR!)
+# ============================================================================
+# Launches youtube-tui in external Ghostty window to bypass TMUX image protocol limitations
+# Based on: https://dev.to/ajkerrigan/kitty-image-quality-in-the-terminal-without-giving-up-tmux-16be
+
+# F9 to toggle youtube-tui popup with PERSISTENT SESSION
+bind-key -n F9 run-shell '
+    # Check if persistent youtube-tui session exists
+    if ! tmux has-session -t elmusic-persistent 2>/dev/null; then
+        # Create persistent background session
+        tmux new-session -d -s elmusic-persistent -c "#{pane_current_path}"
+        tmux send-keys -t elmusic-persistent "/home/Gos/.cargo/bin/youtui; tmux kill-session -t elmusic-persistent" Enter
+    fi
+    
+    # Check if popup is currently visible (client attached to elmusic-persistent)
+    if tmux list-clients -t elmusic-persistent 2>/dev/null | grep -q .; then
+        # Popup is visible, hide it by detaching all clients
+        tmux detach-client -s elmusic-persistent -a
+    else  
+        # Popup is hidden, show it with display-popup
+        tmux display-popup -E -h 90% -w 90% -d "#{pane_current_path}" \
+            "tmux attach -t elmusic-persistent"
+    fi
+'
+
+# Ctrl+F9: Alternative - kill any external youtui processes
+bind-key -n C-F9 run-shell '
+    if tmux has-session -t elmusic-persistent 2>/dev/null; then
+        tmux kill-session -t elmusic-persistent
+        tmux display-message "ElMusic persistent session killed"
+    else
+        tmux display-message "No elmusic persistent session found"  
+    fi
+'
+
+
+
 # "$@"
 # # /!\ do not remove the previous line
 # #     do not write below this line

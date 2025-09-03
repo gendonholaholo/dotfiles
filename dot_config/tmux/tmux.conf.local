@@ -267,6 +267,10 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # This section contains all custom key bindings and navigation enhancements.
 
 # -- Basic Settings --
+# Force interactive shell for all new panes/windows (enables bashrc execution)
+set -g default-command "$SHELL -i"
+set -g default-shell "$SHELL"
+
 # start with mouse mode enabled
 set -g mouse on
 bind-key -T copy-mode-vi WheelUpPane send -N2 -X scroll-up
@@ -361,21 +365,25 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
 
-# -- tmux-fzf plugin ----------------------------------------------------------
-set -g @plugin 'sainnhe/tmux-fzf'
+# -- tmux-sessionx plugin -----------------------------------------------------
+set -g @plugin 'omerxx/tmux-sessionx'
 
-# tmux-fzf configuration
-set-environment -g TMUX_FZF_LAUNCH_KEY "F"
-set-environment -g TMUX_FZF_OPTIONS "-p -w 80% -h 70% --border=rounded --info=inline --layout=reverse"
-set-environment -g TMUX_FZF_ORDER "session|window|pane|command|keybinding"
-set-environment -g TMUX_FZF_PREVIEW "1"
-set-environment -g TMUX_FZF_WINDOW_FORMAT "#{window_name} [#{window_panes} panes]"
-set-environment -g TMUX_FZF_SESSION_FORMAT "#{session_windows} windows"
-set-environment -g TMUX_FZF_PANE_FORMAT "[#{window_name}] #{pane_current_command} [#{pane_width}x#{pane_height}]"
+# tmux-sessionx configuration
+set -g @sessionx-bind 'o'                    # Use 'o' key (prefix + o)
+set -g @sessionx-window-height '85%'         # Window height
+set -g @sessionx-window-width '75%'          # Window width
+set -g @sessionx-zoxide-mode 'on'            # Enable zoxide integration
+set -g @sessionx-custom-paths-subdirectories 'false'
+set -g @sessionx-filter-current 'false'      # Show current session
+set -g @sessionx-preview-location 'top'    # Preview on right side
+set -g @sessionx-preview-ratio '55%'         # Preview width
+set -g @sessionx-window-mode 'off'            # Enable window mode
+set -g @sessionx-tree-mode 'off'              # Enable tree mode
 
-# Custom tmux-fzf key bindings for session/window management
-bind-key s run-shell -b '~/.config/tmux/plugins/tmux-fzf/scripts/session.sh switch'
-bind-key w run-shell -b '~/.config/tmux/plugins/tmux-fzf/scripts/window.sh switch'
+# Override conflicting tmux-fzf bindings from oh-my-tmux base config
+# Note: We'll let tmux-sessionx override these bindings instead of unbinding them
+
+
 
 
 # ============================================================================

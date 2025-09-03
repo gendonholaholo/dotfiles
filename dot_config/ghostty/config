@@ -14,6 +14,7 @@
 # ===================================================================
 # Use Homebrew theme as base (preserving current choice)
 theme = Dark Pastel
+custom-shader = ghostty-shaders/just-snow.glsl
 
 # Advanced color customization (uncomment to override theme)
 # background = #1e1e1e
@@ -60,6 +61,31 @@ window-decoration = none
 window-padding-x = 5
 window-padding-y = 5
 
+# Window theme for consistent appearance
+window-theme = dark
+
+# ===================================================================
+# TAB CONFIGURATION
+# ===================================================================
+# Tab bar positioning and appearance
+gtk-tabs-location = top
+
+# Tab width control for better appearance
+gtk-wide-tabs = false
+
+# GTK titlebar for better integration
+gtk-titlebar = true
+
+# Adwaita toolbar style for minimal look
+adw-toolbar-style = flat
+
+# Titlebar colors for dark theme
+window-titlebar-background = #000000
+window-titlebar-foreground = #ffffff
+
+# Smaller font for tabs
+window-title-font-family = "JetBrains Mono"
+
 # Advanced window settings
 # window-colorspace = srgb  # Commented out for Linux compatibility
 window-save-state = never
@@ -97,9 +123,9 @@ copy-on-select = clipboard
 # audible-bell = false  # Not supported
 # visual-bell = true    # Not supported
 
-# Cursor settings
+# Cursor settings - optimized for smoothness
 cursor-style = block
-cursor-style-blink = true
+cursor-style-blink = false
 cursor-opacity = 1.0
 
 # ===================================================================
@@ -114,13 +140,17 @@ clipboard-trim-trailing-spaces = true
 osc-color-report-format = 8-bit
 
 # ===================================================================
-# PERFORMANCE OPTIMIZATION
+# PERFORMANCE OPTIMIZATION (NVIDIA RTX 3050)
 # ===================================================================
-# VSync for smooth rendering (disabled to prevent image rendering conflicts)
-# window-vsync = true  # Commented out for Linux compatibility
+# VSync for smooth rendering - now enabled with NVIDIA GPU
+window-vsync = true
 
-# Memory and performance tuning
-custom-shader-animation = true
+# Memory and performance tuning for smooth experience
+scrollback-limit = 50000
+
+# Additional smoothness optimizations
+window-step-resize = false
+window-new-tab-position = end
 
 # ===================================================================
 # KEYBINDINGS (TMUX-COMPATIBLE)
@@ -142,23 +172,23 @@ custom-shader-animation = true
 # ===================================================================
 # IMAGE RENDERING OPTIMIZATION
 # ===================================================================
-# IMPORTANT: Image rendering fixes are applied via environment variables
-# These environment variables are automatically set by the ghostty launcher script:
-#   GSK_RENDERER=gl                    - Use OpenGL for GTK rendering
-#   MESA_GL_VERSION_OVERRIDE=3.3       - Force OpenGL 3.3 compatibility
-#   MESA_GLSL_VERSION_OVERRIDE=330     - Force GLSL 3.30 compatibility
-#   unset GTK_THEME                    - Remove theme conflicts
-#   unset GTK_USE_PORTAL               - Disable portal conflicts
+# NVIDIA RTX 3050 GPU ACCELERATION
+# These environment variables force Ghostty to use NVIDIA GPU instead of Intel:
+#   __NV_PRIME_RENDER_OFFLOAD=1        - Enable NVIDIA PRIME render offload
+#   __GLX_VENDOR_LIBRARY_NAME=nvidia   - Use NVIDIA OpenGL library
+#   GSK_RENDERER=ngl                   - Use next-gen OpenGL for GTK rendering
+#   VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json  - Force NVIDIA Vulkan
 #
-# For manual launch, set these environment variables:
+# For manual launch with NVIDIA GPU:
+# export __NV_PRIME_RENDER_OFFLOAD=1
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia
 # export GSK_RENDERER=ngl
-# export MESA_GL_VERSION_OVERRIDE=3.3
-# export MESA_GLSL_VERSION_OVERRIDE=330
-# unset GTK_THEME
-# unset GTK_USE_PORTAL
+# export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
 # Enable GTK OpenGL debugging for image rendering diagnostics
 gtk-opengl-debug = true
+
+
 
 # UNLIMITED IMAGE SUPPORT FOR YAZI THUMBNAILS
 # Remove all image display restrictions to allow yazi thumbnails
@@ -171,8 +201,8 @@ gtk-opengl-debug = true
 #   - COLORTERM=truecolor (for full color support)
 #   - GHOSTTY_ENABLE_IMAGES=1 (enable image protocols)
 
-# Optimize minimum contrast for better image rendering
-minimum-contrast = 1.0
+# Optimize minimum contrast for better image rendering (using value from top of config)
+# minimum-contrast = 1.0  # Removed duplicate - using 1.2 from main config
 
 # Ensure proper focus behavior for image applications
 focus-follows-mouse = false

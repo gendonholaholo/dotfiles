@@ -135,6 +135,7 @@ alias dirs='dust -d 1 -r'     # Directory size analysis
 # System aliases
 alias cls='clear'              # Clear screen
 alias gosel='nvim'             # Quick editor access
+alias elmusic='youtui'             # Quick editor access
 
 # Audio management aliases
 alias check-audio='python3 /home/Gos/Downloads/duh/post_reboot_checker.py'
@@ -203,7 +204,82 @@ fi
 # ============================================================================
 
 # Display system information with fastfetch using custom config
-fastfetch -c ~/.config/fastfetch/config.jsonc
+# fastfetch -c ~/.config/fastfetch/config.jsonc
+fastfetch --kitty-icat .config/fastfetch/assets/2.png
 
 # direnv
 eval "$(direnv hook bash)"
+
+export PATH="$HOME/go/bin:$PATH"
+
+# ============================================================================
+# 8. POETRY INTEGRATION
+# ============================================================================
+
+# Function to activate poetry venv and launch nvim
+pnvim() {
+    if [ -f "pyproject.toml" ]; then
+        local venv_path=$(poetry env info --path 2>/dev/null)
+        if [ "$venv_path" != "" ]; then
+            source "$venv_path/bin/activate"
+            echo "✓ Activated poetry venv: $(basename "$venv_path")"
+            nvim "$@"
+        else
+            echo "❌ No poetry venv found. Run 'poetry install' first."
+        fi
+    else
+        echo "❌ No pyproject.toml found. Not a poetry project."
+    fi
+}
+
+# Alias for quick poetry shell activation
+alias pshell='source $(poetry env info --path)/bin/activate'
+
+# ============================================================================
+# 9. UV PROJECT INITIALIZATION
+# ============================================================================
+
+# Function to initialize UV project with direnv
+el() {
+    # Color definitions
+    local BLUE='\033[0;34m'
+    local GREEN='\033[0;32m'
+    local RED='\033[0;31m'
+    local YELLOW='\033[1;33m'
+    local CYAN='\033[0;36m'
+    local NC='\033[0m' # No Color
+    
+    echo -e "${BLUE}[INFO]${NC} Initializing UV project with direnv..."
+    
+    # Initialize UV project
+    echo -e "${YELLOW}[PROCESS]${NC} Running: uv init"
+    if ! uv init; then
+        echo -e "${RED}[ERROR]${NC} Failed to initialize UV project"
+        return 1
+    fi
+    
+    # Create virtual environment
+    echo -e "${YELLOW}[PROCESS]${NC} Running: uv venv"
+    if ! uv venv; then
+        echo -e "${RED}[ERROR]${NC} Failed to create virtual environment"
+        return 1
+    fi
+    
+    # Create .envrc file
+    echo -e "${YELLOW}[PROCESS]${NC} Creating .envrc file"
+    echo "source .venv/bin/activate" > .envrc
+    echo -e "${GREEN}[SUCCESS]${NC} Created .envrc file"
+    
+    # Allow direnv
+    echo -e "${YELLOW}[PROCESS]${NC} Running: direnv allow ."
+    if ! direnv allow .; then
+        echo -e "${RED}[ERROR]${NC} Failed to allow direnv"
+        return 1
+    fi
+    
+    echo -e "${GREEN}[COMPLETE]${NC} UV project initialized successfully!"
+    echo -e "${CYAN}[INFO]${NC} Virtual environment created and activated via direnv"
+}
+
+# Ghostty NVIDIA GPU Launcher
+alias ghostty-gpu='/home/Gos/.config/ghostty/ghostty-nvidia'

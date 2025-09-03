@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Ghostty NVIDIA GPU Launcher Script
+# Forces Ghostty to use NVIDIA RTX 3050 instead of Intel Graphics
+
+# Set NVIDIA PRIME render offload environment
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# Use next-gen OpenGL renderer for better performance
+export GSK_RENDERER=ngl
+
+# Force NVIDIA Vulkan if available
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+
+# Ensure proper NVIDIA driver loading
+export GDK_BACKEND=x11
+
+# Launch Ghostty with NVIDIA GPU acceleration
+exec ghostty "$@"
